@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图标特效</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            width:400px;
+            height:250px;
+            border:1px solid #000;
+        }
+        li {
+            list-style: none;
+            width: 100px;
+            height: 50px;
+            float: left;
+            margin-top:50px;
+            text-align:center;
+            overflow:hidden;
+        }
+        li span{
+            display:inline-block;
+            width:24px;
+            height:24px;
+            position:relative;
+
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $('li').each(function(index,ele){
+                $(this).children('span').css('background','url("./imgs/bg.png") no-repeat 0 ' +
+                    index*-24+'px'
+                    )
+            })
+            $('li').mouseenter(function(){
+                $(this).children('span').animate({
+                    top:-50
+                },500,function(){
+                    $(this).css('top','50px');
+                    $(this).animate({
+                        top:0
+                    },500)
+                });
+
+            })
+        })
+    </script>
+</head>
+<body>
+<ul>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+    <li><span></span><p>百度</p></li>
+</ul>
+</body>
+</html>

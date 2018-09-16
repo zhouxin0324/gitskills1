@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件自动触发</title>
+    <style>
+        .father{
+            width:200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            /*
+            自动触发有两种方法：
+            1、trigger（）
+            2、triggerHandle()阻止冒泡，阻止默认事件，但标签a是个例外
+             */
+            $('.father').click(function(){
+                alert('hello1');
+            });
+            $('.son').click(function(){
+                alert('hello2');
+            })
+            //$('.father').trigger('click');
+            //$('.son').trigger('click');
+            $('.son').triggerHandler('click');
+
+            //triggerHandler在标签a上是个例外，不会阻止默认事件
+            //可通过在文本上增加<span>标签，将事件绑在span上来达到目的
+            $('span').click(function(){
+                alert('hello3');
+            })
+            $('span').triggerHandler('click');
+        })
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com"><span>进入百度</span></a>
+</body>
+</html>

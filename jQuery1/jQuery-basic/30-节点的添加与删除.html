@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点的添加与删除</title>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            //append()将新增节点添加到指定节点最后面
+            //appendTo()作用同append()，只是参数不同
+            //prepend()将新增节点添加到指定节点最前面
+            //prependTo()作用同prepend(),只是参数不同
+
+            //before()
+            //insertBefore()
+            //after()
+            //insertAfter()
+            $('button').eq(0).click(function () {
+                let $li = $('<li>新增的li</li>')
+                //$('ul').append($li)
+                //$li.appendTo($('ul'));
+                //$li.insertBefore($('ul'));
+                $('ul').before($li);
+            });
+
+            //删除
+            //remove()
+            //detach()作用同remove，只是detach会保存被删除节点及相关元素内容，经常
+            //被用在删除再添加
+            //empty()删除指定节点的内容及相关元素，
+
+            //替换
+            //replaceWith()接收参数字符串、Dom节点、jQuery对象、函数
+            //replaceAll()
+            $('button').eq(1).click(function () {
+                //$('div').replaceWith('<em>wo shi em</em>')
+                let $em = $('<em>wo shi em</em>');
+                $em.replaceAll('div')
+            })
+        })
+    </script>
+</head>
+<body>
+<button>添加节点</button>
+<button>替换节点</button>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+</ul>
+<div>我是div</div>
+</body>
+</html>

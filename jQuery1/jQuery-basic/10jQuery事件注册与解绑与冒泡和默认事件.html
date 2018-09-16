@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件注册与解绑</title>
+    <style>
+        .father{
+            width:200px;
+            height: 200px;
+            background: red;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+             //写入你的代码
+           /* 注册事件的两种方式：
+            1、$().eventName(fn)
+            2、$().on('eventName',fn)*/
+
+            function test1(){
+                alert('hello1')
+            }
+
+            function test2(){
+                alert('hello2')
+            }
+
+            //evenName(fn)
+            $('button').click(test1)
+            //on(evenName,fn)
+            $('button').on('click',test2)
+
+            //解绑事件
+            /*off()无参数的时候会删除指定元素的所有事件
+                 只有一个参数的时候会删除指定元素的该事件名的事件
+                 两个参数，删除指定元素的该事件名对应的处理函数*/
+            //$('button').off();
+            //$('button').off('click')
+            $('button').off('click',test1);
+
+            //事件冒泡
+            /*阻止冒泡两种方式：
+            1、在事件处理函数中return false
+            2、在事件处理函数中添加event.stopPropagation()*/
+            $('.son').click(function(event){
+                alert('hello aj1');
+                //return false;
+                event.stopPropagation();
+            })
+            $('.father').click(function(){
+                alert('hello aj2');
+            })
+
+            //默认事件
+            $('a').click(function(event){
+                event.preventDefault();
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <button>点击</button>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com">进入百度</a>
+</body>
+</html>

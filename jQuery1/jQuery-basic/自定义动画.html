@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .one{
+            width:100px;
+            height: 100px;
+            background: red;
+            margin:10px;
+        }
+        .two{
+            width:100px;
+            height:100px;
+            background:blue;
+            margin:10px;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            /*
+            animate()的四个参数：
+            1、第一个参数，一个对象，可以设置相关css属性
+            2、第二个参数，动画执行时间
+            3、第三个参数，动画执行时间函数，默认swing
+            4、第四个参数，回调函数
+             */
+            $('button').eq(0).click(function(){
+                //$('.one').animate({width:200},1000,'linear',function(){});
+                $('.one').animate({marginLeft:500,
+                                    width:500
+                },1000);
+                $('.two').animate({marginLeft:500},1000,'linear');
+            })
+            $('button').eq(1).click(function(){
+                $('.one').animate({
+                    width:'+=100px'
+                },1000);
+            })
+            $('button').eq(2).click(function(){
+                $('.one').animate({
+                   // width:'hide'
+                    //width:'toggle'
+                },1000)
+            })
+        })
+    </script>
+</head>
+<body>
+<button>操作属性</button>
+<button>累加属性</button>
+<button>关键字</button>
+<div class="one"></div>
+<div class="two"></div>
+</body>
+</html>

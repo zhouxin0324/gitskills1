@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            width:300px;
+            height:50px;
+            background:red;
+        }
+        .nav>li{
+            list-style:none;
+            width:100px;
+            height:50px;
+            line-height:50px;
+            text-align:center;
+            float:left;
+        }
+        .sub>li{
+            list-style:none;
+            background:mediumpurple;
+            border-bottom:1px solid #fff;
+        }
+        .sub{
+            display:none;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+
+            //注释掉的方法有bug，快速移入移出会出现下拉框上上下下的问题，因动画队列导致的
+
+            /*$('.nav>li').mouseenter(function(){
+                $(this).children('.sub').slideDown(1000);
+               // $(this).siblings().children('.sub').slideUp(1000);
+            })
+            $('.nav>li').mouseleave(function(){
+                $(this).children('.sub').slideUp(1000);
+            })*/
+            //解决上述bug,在执行动画前，用stop（）停止上一次动画
+            $('.nav>li').mouseenter(function(){
+                $(this).children('.sub').stop();
+                $(this).children('.sub').slideDown(1000);
+                // $(this).siblings().children('.sub').slideUp(1000);
+            })
+            $('.nav>li').mouseleave(function(){
+                $(this).children('.sub').stop();
+                $(this).children('.sub').slideUp(1000);
+            })
+        })
+    </script>
+</head>
+<body>
+<ul class="nav">
+    <li>一级菜单1
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单2
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+    <li>一级菜单3
+        <ul class="sub">
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+            <li>二级菜单</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

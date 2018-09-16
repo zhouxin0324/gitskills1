@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性与属性节点</title>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+             //写入你的代码
+            //attr()
+            /*
+            *1、attr()传入一个参数，获取属性节点
+            *2、attr()传入两个参数，设置属性节点
+            * 注意点
+            * 1、获取属性，无论找到多少个元素，都只会返回第一个元素指定的属性节点的值
+            * 2、设置属性，为所有找到的元素，设置指定属性
+            * 3、设置属性，如果指定属性不存在，则新增属性
+            */
+
+            let span=$('span');
+            $.each(span,function(index,value){
+                console.log(span.eq(index).attr('class'));
+            })
+            console.log($('span').attr('class'));
+            $('span').eq(0).attr('class','span3');
+            $('span').attr('name','zhouxin');
+
+            //removeattr()
+            /*
+            *removeAttr()会删除所有找到元素的指定属性
+            */
+            $('span').removeAttr('name');
+            $('span').removeAttr('class name');
+
+
+            //prop()方法 作用：不仅可以操作属性还可以操作属性节点
+            console.log($(zhouxin).prop('name'));
+            $(zhouxin).prop('BF','zhangchao');
+            console.log(zhouxin);
+            console.log($('input').eq(0).prop('checked'));
+
+        })
+
+
+        //属性为对象上保存的变量
+        var zhouxin={
+            name:"xin",
+            age:27
+        }
+
+        //属性节点为dom元素的属性
+        //DOM对象的attributes属性中保存所有的属性节点
+        //属性节点通过getAttribute()方法获取属性节点
+        //        通过setAttribute(）方法设置属性节点
+    /*    window.onload=function() {
+            var span1 = document.getElementsByTagName("span")[0];
+            var input = document.getElementsByTagName('input')[0];
+            console.log(span1.getAttribute("class"));
+            span1.setAttribute('class','span3');
+            console.log(input.checked);
+        }*/
+    </script>
+</head>
+<body>
+    <span class="span1"></span>
+    <span class="span2"></span>
+    <input type="checkbox" checked>
+</body>
+</html>

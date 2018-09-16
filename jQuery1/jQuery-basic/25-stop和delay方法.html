@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stop和delay方法</title>
+    <style>
+        .one{
+            width:100px;
+            height:100px;
+            background: red;
+        }
+        .two{
+            width:500px;
+            height:10px;
+            background: blue;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $('button').eq(0).click(function(){
+                //$('.one').animate({width:500},1000).delay(2000).animate({height:500},1000);
+                $('.one').animate({width:500},1000).animate({height:500},1000).animate({width:100},1000).animate({height:100},1000);
+            })
+            $('button').eq(1).click(function(){
+                //停止当前动画，执行后续动画
+                //$('.one').stop();
+                //$('.one').stop(false);
+                //$('.one').stop(false,false);
+
+                //停止当前动画及后续动画
+                //$('.one').stop(true);
+                //$('.one').stop(true,false);
+
+                //立即完成当前的，继续执行后面的
+                //$('.one').stop(false,true);
+
+                //立即完成当前的，停止执行后面的
+                $('.one').stop(true,true);
+            })
+
+        })
+    </script>
+</head>
+<body>
+<button>开始动画</button>
+<button>停止动画</button>
+<div class="one"></div>
+<div class="two"></div>
+</body>
+</html>

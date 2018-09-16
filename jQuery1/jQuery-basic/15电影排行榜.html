@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电影排行榜</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width:300px;
+            height:600px;
+            margin:0 auto;
+            border:1px solid #000;
+        }
+        .box h2{
+            font-size:20px;
+            color:deeppink;
+            padding-left:5px;
+            border-bottom:1px dashed #ccc;
+        }
+        ul>li{
+            list-style-type: none;
+            padding:5px 10px;
+            border-bottom:1px dashed #ccc;
+        }
+        li>span{
+            display:inline-block;
+            width:20px;
+            height:20px;
+            background-color:#ccc;
+            text-align:center;
+            line-height:20px;
+            margin-right:5px;
+        }
+        ul>li:nth-child(-n+3) span {
+            background: deeppink;
+        }
+        .content{
+            display:none;
+            overflow:hidden;
+            margin-top:5px;
+        }
+        .content img{
+            width:80px;
+            height: 120px;
+            float:left;
+        }
+        .content p{
+            width:180px;
+            height: 120px;
+            float:right;
+            font-size:12px;
+            line-height:20px;
+        }
+        .current .content{
+            display:block;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            $('ul').delegate('li','mouseenter',function(){
+                $(this).addClass('current');
+            })
+            $('ul').delegate('li','mouseleave',function(){
+                $(this).removeClass('current');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+    <h2>电影排名榜</h2>
+    <ul>
+        <li><span>1</span>电影名称
+        <div class="content">
+            <img src="./imgs/pic06.jpg">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影v我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+        <li><span>2</span>电影名称
+        <div class="content">
+            <img src="">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+        <li><span>3</span>电影名称
+        <div class="content">
+            <img src="">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+        <li><span>4</span>电影名称
+        <div class="content">
+            <img src="">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+        <li><span>5</span>电影名称
+        <div class="content">
+            <img src="">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+        <li><span>6</span>电影名称
+        <div class="content">
+            <img src="">
+            <p>我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影
+                我是一部电影我是异步电影我是一部电影我是一部电影我是异步电影我是一部电影</p>
+        </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

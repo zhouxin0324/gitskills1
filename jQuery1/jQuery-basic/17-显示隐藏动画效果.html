@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示隐藏动画</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            /*-webkit-animation:fadeIn 2s linear 1 forwards;*/
+        }
+
+        @-webkit-keyframes  fadeIn{
+            100%{
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            $('button').eq(0).click(function(){
+                //$('div').css('-webkit-animation',"fadeIn 1s linear 1 both")
+                $('div').show(1000,function(){})
+            })
+            $('button').eq(1).click(function () {
+                //$('div').css("display","none");
+                $('div').hide(1000,function(){})
+            });
+            $('button').eq(2).click(function(){
+                $('div').toggle(1000,function(){})
+            })
+        })
+    </script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>切换</button>
+<div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr和prop练习</title>
+    <script src="js\jquery-1.12.4.js"></script>
+    <!--<script>
+        $(function(){
+             //写入你的代码
+            let $btn=$('button').eq(0);
+            let $src=$('img').eq(0);
+            $btn.onclick=function(){
+                let $value=$('input').eq(0).attr('value');
+                if($value){
+                    $src.attr('src','$value');
+                }
+            }
+        })
+    </script>-->
+
+
+</head>
+<body>
+    <input type="text">
+    <button>切换图片</button>
+    <br>
+    <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
+    <script>
+        window.onload=function(){
+            let btn=document.getElementsByTagName('button')[0];
+            let img=document.getElementsByTagName('img')[0];
+            let input=document.getElementsByTagName('input')[0];
+            btn.onclick=function(){
+                let value=input.getAttribute('value');
+                console.log(input.value);
+                console.log(input.type);
+                if(input.value){
+                    img.setAttribute('src',input.value);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

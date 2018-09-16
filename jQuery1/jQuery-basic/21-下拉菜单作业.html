@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单作业</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .box1{
+            width:300px;
+            position:relative;
+            margin:0 auto;
+            border:1px solid #000;
+        }
+        .firstLine{
+            overflow: hidden;
+        }
+        .firstLine>li{
+            list-style: none;
+            width:100px;
+            height:30px;
+            line-height:30px;
+            text-align:center;
+            float:left;
+        }
+        .box1>p{
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+
+
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $('p').click(function(){
+                $('li:gt(2):lt(9)').slideToggle(1000);
+                //$('ul>li:nth-child(n+3)').slideToggle(1000);
+                //console.log($('ul>li:nth-child(n+3)'));
+                if($(this).text()=='显示所有内容'){
+                    $(this).text('隐藏所有内容');
+                }else{
+                    $(this).text('显示所有内容')
+                }
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <ul class="firstLine">
+            <li>佳能</li>
+            <li>索尼</li>
+            <li>三星</li>
+            <li>尼康</li>
+            <li>松下</li>
+            <li>卡西欧</li>
+            <li>富士</li>
+            <li>可达</li>
+            <li>宾得</li>
+            <li>理光</li>
+            <li>奥林巴斯</li>
+            <li>明基</li>
+            <li>显示其它品牌</li>
+        </ul>
+            <p>隐藏所有内容</p>
+        </div>
+    </div>
+</body>
+</html>

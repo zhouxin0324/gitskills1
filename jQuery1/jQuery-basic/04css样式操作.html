@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css样式</title>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+             //写入你的代码
+            $('div').css('width','100px');
+            $('div').css({
+                height:'100px',
+                background:'red',
+                border:'1px solid #000'
+            });
+            console.log($('div').css('background'));
+            console.log($('div').css('width'));
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

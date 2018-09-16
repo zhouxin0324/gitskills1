@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red ;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            /*
+            delegate()方法实现事件委托
+            */
+            $('button').click(function(){
+                $('ul').append("<li>我是新增的li</li>");
+            })
+            $('ul').delegate('li','click',function(){
+                console.log($(this).text());
+            });
+
+            /*
+            mouseover/mouseout的移入移出事件
+            在进入子元素的时候会触发父元素的移入移出事件
+            */
+         /*   $('.father').mouseover(function(){
+                console.log('移入father');
+            });
+            $('.father').mouseout(function(){
+                console.log('移出father');
+            })*/
+            /*
+            mouseenter/mouseleave的移入移出事件
+            在进入子元素的时候不会触发父元素的移入移出事件
+            */
+            /*$('.father').mouseenter(function(){
+                console.log('移入father');
+            })
+            $('.father').mouseleave(function(){
+                console.log('移出father');
+            })*/
+            /*
+            hover()实现移入移出事件
+            1、只传入一个参数，则该处理函数即为移入也为移出
+            2、传入两个参数，则第一个处理函数为移入，第二个处理函数为移出
+            */
+            $('.father').hover(function(){
+                console.log('移入father');
+            },function(){
+                console.log('移出father');
+            })
+        })
+      /* window.onload=function(){
+           let ul=document.getElementsByTagName('ul')[0];
+           let btn=document.getElementsByTagName('button')[0];
+           ul.addEventListener('click',function(e){
+               console.log(e.target.innerText);
+           })
+           btn.addEventListener('click',function(){
+               let li=document.createElement('li');
+               li.innerText='我是新增的li';
+               ul.appendChild(li);
+           })
+       }*/
+    </script>
+</head>
+<body>
+<ul>
+    <li>我是第1个li</li>
+    <li>我是第2个li</li>
+    <li>我是第3个li</li>
+</ul>
+<button>新增一个li</button>
+<div class="father">
+    <div class="son"></div>
+</div>
+</body>
+</html>

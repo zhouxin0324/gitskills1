@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery尺寸和位置操作</title>
+    <style>
+        .father{
+            width: 200px;
+            height: 200px;
+            border:50px solid #000;
+            background:red;
+            margin-left: 50px;
+            position:relative;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background:blue;
+            position:absolute;
+            top:50px;
+            left:50px;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+             //写入你的代码
+            //width() 获取指定元素的宽度，也可以设置指定元素的宽度
+            //position()获取指定元素相对于定位元素的偏移位，position无法设置
+            //offset()获取距离窗口的偏移位
+            let $btn=$('button');
+            //let $btn2=$('button').eq(1); //注意：eq(0)获取的是对象并非节点本身
+            console.log($btn)
+            console.log($btn[0]);
+            $btn[0].onclick=function(){
+                console.log($('.father').width());
+                console.log($('.father').position());
+                console.log($('.son').position());
+                console.log($('.father').offset());
+                console.log($('.son').offset().left);
+            };
+            $btn[1].onclick=function(){
+                $('.father').width('300px');
+                $('.son').position({top: 100, left: 100});//注意点：position设置值无效
+                $('.son').offset({
+                    left:100,
+                    top:100
+                });
+            };
+        })
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<button>获取</button>
+<button>设置</button>
+</body>
+<script>
+    //Bom窗口相对于屏幕的距离
+    var leftPos=(typeof window.screenLeft=="number")?
+                    window.screenLeft:window.screenX;
+    var topPos=(typeof window.screenTop=="number")?
+                    window.screenTop:window.screenY;
+    console.log(leftPos);
+
+    //窗口大小
+    var pageWidth=window.innerWidth;
+    var pageHeight=window.innerHeight;
+
+    if(typeof pageWidth=="number"){
+        if(document.compatMode=="CSS1Compat"){
+            pageWidth=document.documentElement.clientWidth;
+            pageHeight=document.documentElement.clientHeight;
+        }else{
+            pageWidth=document.body.clientWidth;
+            pageHeight=document.body.clientHeight;
+        }
+    }
+
+    //元素大小
+    var divp=document.getElementsByClassName("father")[0];
+    var divc=document.getElementsByClassName('son')[0];
+    console.log(divc.offsetLeft);
+    console.log(divp.offsetWidth);
+    console.log(divc.offsetParent);
+    //利用循环函数计算元素在当前页面的偏移量
+
+    function getElementLeft(element){
+        var actualLeft=element.offsetLeft;
+        var current=element.offsetParent;
+        while(current!==null){
+            actualLeft+=current.offsetLeft;
+            current=current.offsetParent;
+        }
+        return actualLeft;
+    }
+
+    function getElementLeft(element){
+        var actualTop=element.offsetTop;
+        var current=element.offsetParent;
+        while(current!==null){
+            actualTop+=current.offsetTop;
+            current=current.offsetParent;
+        }
+        return actualTop;
+    }
+</script>
+</html>

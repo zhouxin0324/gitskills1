@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点复制</title>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //jquery的浅复制不会复制节点上的事件
+            $('ul').click(function(){
+                console.log(1);
+            })
+            $('button').eq(0).click(function(){
+                let ul1=$('ul').clone(false);
+                let div=$('<div></div>');
+                $('body').append(div)
+                div.append(ul1);
+            })
+            $('button').eq(1).click(function(){
+                let ul2=$('ul').clone(true);
+                let div=$('<div></div>');
+                $('body').append(div);
+                div.append(ul2);
+            })
+        })
+        //原生的cloneNode，浅复制只复制指定元素，不复制指定元素的相关元素
+        //                 深复制也不会复制元素上的相关事件
+        window.onload=function(){
+            let ul=document.getElementsByTagName('ul')[0];
+            let ul1=ul.cloneNode(true);
+            //let ul1=ul.cloneNode(false);
+            let div=document.createElement('div');
+            let body=document.getElementsByTagName('body')[0];
+            body.appendChild(div);
+            document.getElementsByTagName('div')[0].appendChild(ul1);
+        }
+    </script>
+</head>
+<body>
+<button>浅复制节点</button>
+<button>深复制节点</button>
+<ul>
+    <li>我是第1个节点</li>
+    <li>我是第2个节点</li>
+    <li>我是第3个节点</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab选项卡</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .box{
+            width:440px;
+            height:248px;
+            border:1px solid #000;
+            margin:50px auto;
+            position:relative;
+        }
+       /* .tab li{
+            list-style:none;
+            float:left;
+            width:110px;
+            height:50px;
+            background:chocolate;
+            text-align:center;
+            line-height: 50px;
+        }*/
+        .tab{
+            position:absolute;
+            top:218px;
+            right:10px;
+        }
+        .tab>li{
+            list-style:none;
+            display:inline-block;
+            width:20px;
+            height: 20px;
+            background:#ccc;
+            text-align:center;
+            line-height:20px;
+        }
+        .tab .current{
+            background:red;
+        }
+        .content>li{
+            list-style:none;
+            display:none;
+        }
+        .content>.show{
+            display:block;}
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            $('.tab').delegate('li','mouseenter',function(){
+                $(this).addClass('current');
+                $(this).siblings().removeClass('current');
+                $index=$(this).index();
+                $img=$('.content>li').eq($index);
+                $img.addClass('show');
+                $img.siblings().removeClass('show');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="box">
+<!--    <ul class="tab">
+        <li class="current">H5+C3</li>
+        <li>jQuery</li>
+        <li>C语言</li>
+        <li>Go语言</li>
+    </ul>-->
+    <ul class="tab">
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul class="content">
+        <li class="show"><img src="./imgs/11.jpg"></li>
+        <li><img src="./imgs/12.jpg"></li>
+        <li><img src="./imgs/13.jpg"></li>
+        <li><img src="./imgs/14.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

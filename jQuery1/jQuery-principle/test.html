@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="../jQuery基础/js/jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            //写入你的代码
+            console.log($(' <q>123</q> '));
+            var res=$('li');
+            $.each(res,function(index,val){
+                console.log(this);
+                console.log(val);
+            })
+            // let p =document.getElementsByTagName('p')[0];
+            // let ul=document.getElementsByTagName('ul')[0];
+            // let temp=p.cloneNode(true);
+            // ul.appendChild(temp);
+            $('button').click(function(){
+                let res=[];
+                res.push($('p'));
+                $('p').appendTo($('ul'));
+            })
+            console.log($('div').get(0));
+            console.log($('div').get(0).className);
+            console.log($('div').eq());
+
+        })
+        var obj={
+            0:1,
+            1:2,
+            2:3,
+            3:4,
+            length:4
+        };
+        function obj1(){
+        this.name=name;
+        this.age='age';}
+        obj1.prototype={
+            construct:obj,
+            sayName:function(){
+                console.log(1);
+            }
+        }
+        var o=new obj1();
+        o.extend=function(obj){
+            console.log(this);
+        }
+        console.log(o.extend());
+        console.log(Object.getPrototypeOf(o) == obj1.prototype);
+        console.log(o.prototype);
+        console.log(obj1);
+        var arr=[].slice.call(obj);
+        console.log(arr);
+        //arr=[1,2,3,4]
+        //obj为伪数组
+        console.log(({}).toString.call(arr));//[object array]
+        console.log(typeof arr);//object
+        console.log(typeof obj);//object
+        console.log(obj.toString());//[object object]
+        console.log(arr.toString());//'1,2,3,4'字符串
+        var num1,num2;
+        num1=num2=998;
+        console.log(num1);
+        console.log(num2);
+        window.onload=function() {
+            var div = document.getElementsByTagName('div')[0];
+            console.log(div);
+            console.log(div.className);
+            var input=document.getElementsByTagName('input')[0];
+            console.log(input.attributes.disabled);
+            console.log(input.getAttribute('disabled'));
+        }
+    </script>
+
+</head>
+<body>
+<button>发送</button>
+<p>sdfds</p>
+<ul data-name="123">
+
+    <li>woshili</li>
+    <li>woshili</li>
+    <li>woshili</li>
+    <li>woshili</li>
+</ul>
+<label for="124"></label>
+<input id="124" type="text" value="125" name="123" disabled>
+<div class="aa bb cc"></div>
+<div class="dd cc"></div>
+<form action="">
+    <input type="file" name="upFile">
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

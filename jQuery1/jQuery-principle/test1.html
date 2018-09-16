@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+    <!--<script src="js/jquery-1.12.4.js"></script>-->
+    <script src="js/njquery-1.1.0.js"></script>
+    <script>
+        $(function() {
+            var ps = document.getElementsByTagName('p');
+            var obj = {
+                name: 'zhouxin',
+                age: 13
+            };
+            var arr = [1, 2, 3, 4, 5]
+            console.log($(''));
+            console.log($(null));
+            console.log($('<p>jdf<span>ijfi</span></p>'));
+            console.log($('.div1'));
+            console.log($(123));
+            console.log(ps);
+            console.log($(obj));
+            console.log($('p').get());
+            console.log($('p').eq(-1));
+            console.log($(arr).first());
+            console.log($(arr).last());
+            $(arr).each(function (index, value) {
+                console.log(this);
+            })
+            var res = $(arr).map(function (value, index) {
+                return index + value;
+            });
+            console.log(res);
+            // console.log($('p').empty());
+            $('p').remove("  .p2");
+            // console.log($.trim('  sdf '));
+            $('button').get(0).onclick=function(){
+                console.log($.trim('  sdf '));
+                $.ajax({
+                type:'get',
+                url:'get_011.php',
+                data: {name:'周欣', age: 27},
+                timeout:3000,
+                success:function (xhr) {
+                    alert(xhr.responseText);
+                },
+                error:function (xhr) {
+                    alert('获取数据失败');
+                }
+            });
+        }
+        })
+    </script>
+
+
+</head>
+<body>
+<div class="div1">
+    <p>dsfd</p>
+    <p class="p2">sfjio<span>okdfoe</span></p>
+    <button>发送请求</button>
+</div>
+<!--<script>-->
+    <!--var div=document.getElementsByTagName('div')[0];-->
+    <!--console.log(div.children[1]);-->
+<!--</script>-->
+</body>
+</html>

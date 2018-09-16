@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖特效</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        div{
+            width:310px;
+            height: 300px;
+            margin:100px auto;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            border:1px solid #000;
+            float:left;
+        }
+        .cur{
+            background:red;
+        }
+        p{
+            width:304px;
+            height: 30px;
+            text-align:center;
+            line-height: 30px;
+            background: red;
+            border:1px solid #000;
+            margin:0 auto;
+        }
+    </style>
+    <script src="js\jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            $('p').click(function(){
+                let total=parseInt(Math.random()*10)+9;
+                let index=0;
+                console.log(total);
+                let timer=setInterval(function(){
+                    if(index==9) {
+                        index = 0;
+                    }
+                    $('img').eq(index).addClass('cur');
+                    $('img').eq(index).siblings().removeClass('cur');
+                    index++;
+                    total--;
+                    if(total==0){
+                        clearInterval(timer);
+                        $('img').eq(index-1).stop().fadeOut(500).fadeIn(500);
+                    }
+                },50)
+
+            })
+        })
+    </script>
+</head>
+<body>
+<div>
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+    <img src="" alt="">
+</div>
+<p>开始抽奖</p>
+</body>
+</html>
